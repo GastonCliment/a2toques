@@ -1,0 +1,80 @@
+<br>
+<div class="formulario">
+  <form [formGroup]="formGroup" autocomplete="off">
+    <!--Campo Nombre-->
+    <div class="form-group">
+      <label for="nombreRF">Nombre</label>
+      <input type="text"
+             class="form-control"
+             id="nombreRF"
+             name="nombre"
+             formControlName="nombre">
+      <div *ngIf="formGroup.controls['nombre'].errors && formGroup.controls['nombre'].dirty" class="alert alert-warning">
+        <p *ngIf="formGroup.controls['nombre'].errors['required']">Campo Requerido</p>
+      </div>
+    </div>
+    <br>
+    <!--Campo Email-->
+    <div class="form-group">
+      <label for="emailRF">Email</label>
+      <input type="text"
+             class="form-control"
+             id="emailRF"
+             name="email"
+             formControlName="email">
+      <div *ngIf="formGroup.controls['email'].errors && formGroup.controls['email'].dirty" class="alert alert-warning">
+        <p *ngIf="formGroup.controls['email'].errors['required']">Campo Requerido</p>
+        <p *ngIf="formGroup.controls['email'].errors['email']">Formato Email requerido</p>
+      </div>
+    </div>
+    <br>
+    <!--Campo Asunto-->
+    <label>Asunto</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <label class="form-check-label" for="flexRadioDefault1">
+        Evento
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+      <label class="form-check-label" for="flexRadioDefault2">
+        Cumpleaños
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+      <label class="form-check-label" for="flexRadioDefault1">
+        Torneo
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" checked>
+      <label class="form-check-label" for="flexRadioDefault1">
+        Otro
+      </label>
+    </div>
+    <br>
+    <!--Campo Mensaje-->
+    <div class="form-group">
+      <label for="mensajeRF">Mensaje</label>
+      <textarea
+             class="form-control"
+             id="mensajeRF"
+             name="mensaje"
+             formControlName="mensaje">
+        </textarea>
+      <div *ngIf="formGroup.controls['mensaje'].errors && formGroup.controls['mensaje'].dirty" class="alert alert-warning">
+        <p *ngIf="formGroup.controls['mensaje'].errors['required']">Campo Requerido</p>
+        <p *ngIf="formGroup.controls['mensaje'].errors['minLength']">Debe ingresar alcaracteres</p>
+      </div>
+    </div>
+
+  </form>
+
+  <div class="row justify-content-sm-center">
+    <div class="col-4">
+      <button class="btn btn-success" [disabled]="formGroup.invalid" (click)="enviarFormulario()" >Enviar</button>
+    </div>
+  </div>
+</div>

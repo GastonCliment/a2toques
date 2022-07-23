@@ -1,0 +1,13 @@
+<br>
+<button class="btn btn-info" (click)="mostrar=!mostrar"> {{mostrar? 'Ocultar': 'Mostrar'}} Servicios</button>
+<ul *ngIf="mostrar; else oculto">
+  <li>{{servicios[0]}}</li>
+  <li>{{servicios[1]}}</li>
+  <li>{{servicios[2]}}</li>
+  <li>{{servicios[3]}}</li>
+  <li>{{servicios[4]}}</li>
+  <li>{{servicios[5]}}</li>
+  <li>{{servicios[6]}}</li>
+</ul>
+<ng-template #oculto></ng-template>
+<br>
